@@ -14,3 +14,18 @@
 .alerta{
   margin-top: 10px;
 }
+
+.eliminar{
+ background-color: tomato;
+}
+.formulario{
+display: flex;
+flex-direction: column;
+gap: 10px;
+}
+
+.listado{
+  display: flex;
+flex-direction: column;
+gap: 10px;
+}

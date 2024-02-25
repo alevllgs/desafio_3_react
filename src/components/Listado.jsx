@@ -1,7 +1,11 @@
 import React from 'react';
 import Table from 'react-bootstrap/Table';
 
-function Listado({ colaboradores }) {
+function Listado({ colaboradores, eliminarColaborador }) {
+  const handleEliminarColaborador = (id) => {
+    eliminarColaborador(id);
+  };
+
   return (
     <Table striped bordered hover>
       <thead>
@@ -12,6 +16,7 @@ function Listado({ colaboradores }) {
           <th>Edad</th>
           <th>Cargo</th>
           <th>Telefono</th>
+          <th>Acciones</th>
         </tr>
       </thead>
       <tbody>
@@ -23,6 +28,9 @@ function Listado({ colaboradores }) {
             <td>{colaborador.edad}</td>
             <td>{colaborador.cargo}</td>
             <td>{colaborador.telefono}</td>
+            <td>
+              <button className="eliminar" onClick={() => handleEliminarColaborador(colaborador.id)}>Eliminar</button>
+            </td>
           </tr>
         ))}
       </tbody>

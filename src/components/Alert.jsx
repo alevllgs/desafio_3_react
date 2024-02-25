@@ -1,17 +1,11 @@
 import React from 'react';
-import BootstrapAlert from 'react-bootstrap/Alert';
+import Alert from 'react-bootstrap/Alert';
 
-function Alerta() {
+function Alerta({ mensaje }) {
   return (
-    <>
-      {[
-        'danger',
-      ].map((variant) => (
-        <BootstrapAlert key={variant} variant={variant}>
-          This is a {variant} alert—check it out!
-        </BootstrapAlert>
-      ))}
-    </>
+    <Alert variant="success">
+      {mensaje}
+    </Alert>
   );
 }
 
