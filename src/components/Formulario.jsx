@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 
-function Formulario({ onSubmit }) {
+function Formulario({ onSubmit, setError }) {
   const [formulario, setFormulario] = useState({
     nombre: '',
-    email: '',
+    correo: '', 
     edad: '',
     cargo: '',
     telefono: '',
@@ -19,7 +19,19 @@ function Formulario({ onSubmit }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (Object.values(formulario).some(value => value === '')) {
+      setError('Todos los campos son obligatorios');
+      return;
+    }
     onSubmit(formulario);
+    setError('');
+    setFormulario({
+      nombre: '',
+      correo: '',
+      edad: '',
+      cargo: '',
+      telefono: '',
+    });
   };
 
   return (
@@ -40,9 +52,9 @@ function Formulario({ onSubmit }) {
           <input
             type="email"
             className="form-control"
-            name="email"
+            name="correo"
             placeholder="Correo electrónico"
-            value={formulario.email}
+            value={formulario.correo}
             onChange={handleChange}
             required
           />
@@ -89,4 +101,3 @@ function Formulario({ onSubmit }) {
 }
 
 export default Formulario;
-

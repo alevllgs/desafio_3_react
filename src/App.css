@@ -10,3 +10,7 @@
   flex-direction: row;
   gap: 1rem;
 }
+
+.alerta{
+  margin-top: 10px;
+}
